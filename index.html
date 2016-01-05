@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>前端基本技能测试</title>
+	<style>
+		body{ background: #fff; color: #000;}
+		.center{width: 1000px; margin:0 auto; }
+		.center table{width: 1000px; margin-top: 20px; }
+		.center table td{line-height: 20px; *zoom:1;}
+		.center .ans-holder{margin-left: 20px;}
+		.center .ans-holder em{padding: 0 8px;}
+		.center .ans-holder .result-right{color: green;}
+		.center .ans-holder .result-wrong{color: red;}
+		.text-center{text-align: center;}
+	</style>
+</head>
+<body>
+<form action="#" method="post">
+	<div class="center" id="center">
+		<div class="text-center">
+			<label for="name">输入用户ID： <input type="text" name="name" id="username"></label> <input type="submit" value="提交答案">
+		</div>
+	</div>
+</form>
+<script>$include[js/exam.js]</script>
+<script>$include[js/questions.js]</script>
+<script>
+(function(E, choice){
+	var center = document.getElementById('center');
+	var submit = center.children[0];
+	var fragment = document.createDocumentFragment();
+	for(var i = 0; i < choice.length; i++){
+		fragment.appendChild( E.choice(choice[i]) );
+	}
+	center.insertBefore(fragment, submit);
+})(Exam, choice);
+</script>
+<script>
+	<%if(request.post){%>
+		$include[js/postInfo.js]
+	<%}else{%>
+		$include[js/getInfo.js]
+	<%}%>
+</script>
+</body>
+</html>
