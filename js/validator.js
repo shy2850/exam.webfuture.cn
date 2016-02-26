@@ -1,6 +1,5 @@
-var qqValidator = function (name) {
-    return 
-            /^\d{7,10}$/.test(username)
+var qqValidator = function (username) {
+    return /^\d{7,10}$/.test(username)
         && !/(\d)(?=\1{3})/.test(username)
         && !/(\d{2})(?=\1{2})/.test(username)
         && !/(\d{3})(?=\1)/.test(username)
