@@ -10,8 +10,8 @@
 	var username = document.getElementById('username');
 	
 <%
-	if(!username || !userInfo[username]){
-		print('alert("请联系作者 QQ:807704186 来注册你的用户ID！ \\n或者直接使用807704186作为ID测试(不会保存你的提交记录)");');
+	if(!username || !/^\d{7,10}$/.test(username)){
+		print('alert("请输入你的QQ号码方便记录!');
 	}else if(choice.filter(function(item){return !data[item.id]}).length){
 		print('alert("有未完成题目！")')
 	}else{
