@@ -1,16 +1,19 @@
 <%
-	$include[js/answer.js];
-	$include[js/questions.js];
+	$include["js/answer.js"];
+	$include["js/questions.js"];
 	var data = request.post;
 	var validators = {};
 	var username = data.name || '';
-	$include[js/userInfo.js];
+	$include["js/userInfo.js"];
+	$include["js/validator.js"];
 %>
 (function(E){
 	var username = document.getElementById('username');
 	
 <%
-	if(!username || !/^\d{7,10}$/.test(username)){
+	if(!username
+		|| !qqValidator(username)
+	){
 		print('alert("请输入你的QQ号码方便记录!")');
 	}else if(choice.filter(function(item){return !data[item.id]}).length){
 		print('alert("有未完成题目！")')
