@@ -11,7 +11,7 @@
 	
 <%
 	if(!username || !/^\d{7,10}$/.test(username)){
-		print('alert("请输入你的QQ号码方便记录!');
+		print('alert("请输入你的QQ号码方便记录!")');
 	}else if(choice.filter(function(item){return !data[item.id]}).length){
 		print('alert("有未完成题目！")')
 	}else{
