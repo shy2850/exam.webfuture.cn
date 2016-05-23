@@ -37,7 +37,7 @@
 })(Exam, choice);
 </script>
 <script>
-	<%if(request.post){%>
+	<%if(request.post || request.data.qq){%>
 		$include[js/postInfo.js]
 	<%}else{%>
 		$include[js/getInfo.js]
