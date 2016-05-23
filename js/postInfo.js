@@ -23,6 +23,11 @@
 		if(stats){
 			data = JSON.parse(fs.readFileSync(filepath));
 			print('alert("您已经提交过答案，得分为: ' + data.score + '")');
+			choice.filter(function(que){
+				var ok = answers[que.id] === data[que.id].toString();
+				validators[que.id] = ok ? 'result-right' : 'result-wrong';
+				return ok;
+			});
 		}else if(choice.filter(function(item){return !data[item.id]}).length){
 			print('alert("有未完成题目！")')
 		}else{
