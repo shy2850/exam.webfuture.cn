@@ -24,6 +24,7 @@
 			var res = JSON.parse(fs.readFileSync(filepath));
 			print('alert("您已经提交过答案，得分为: ' + res.score + '")');
 			data = res.answer;
+			delete data.name;
 			for (var k in data) {
 				var ok = answers[k] === data[k].toString();
 				validators[k] = ok ? 'result-right' : 'result-wrong';
