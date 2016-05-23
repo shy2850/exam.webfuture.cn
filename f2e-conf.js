@@ -3,7 +3,7 @@ exports["localhost"] = {
     filter: {
         get: function(req, resp){
             var pathname = req.url.toString();
-            if(pathname === '/index.html' || pathname === '/favicon.ico'){
+            if(pathname.indexOf('/index.html') === 0 || pathname === '/favicon.ico'){
             }else{
                 resp.writeHead(302, {
                     location: '/index.html'
