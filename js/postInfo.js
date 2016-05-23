@@ -11,20 +11,20 @@
 	var username = document.getElementById('username');
 	
 <%
+	var path = require('path');
+	var fs = require('fs');
 	if(!username
 		|| !qqValidator(username)
 	){
 		print('alert("请输入你的QQ号码方便记录!")');
-	}else if(choice.filter(function(item){return !data[item.id]}).length){
-		print('alert("有未完成题目！")')
 	}else{
-		var path = require('path');
-		var fs = require('fs');
 		var filepath = path.join(request.util.conf.root, '/answers/', username + '.json');
 		var stats = fs.existsSync(filepath);
 		if(stats){
 			data = JSON.parse(fs.readFileSync(filepath));
 			print('alert("您已经提交过答案，得分为: ' + data.score + '")');
+		}else if(choice.filter(function(item){return !data[item.id]}).length){
+			print('alert("有未完成题目！")')
 		}else{
 			var score = (choice.filter(function(que){
 				var ok = answers[que.id] === data[que.id].toString();
