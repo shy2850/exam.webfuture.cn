@@ -21,10 +21,11 @@
 		var filepath = path.join(request.util.conf.root, '/answers/', username + '.json');
 		var stats = fs.existsSync(filepath);
 		if(stats){
-			data = JSON.parse(fs.readFileSync(filepath));
-			print('alert("您已经提交过答案，得分为: ' + data.score + '")');
-			for (var k in data.answer) {
-				var ok = answers[k] === data.answer[k].toString();
+			var res = JSON.parse(fs.readFileSync(filepath));
+			print('alert("您已经提交过答案，得分为: ' + res.score + '")');
+			data = res.answer;
+			for (var k in data) {
+				var ok = answers[k] === data[k].toString();
 				validators[k] = ok ? 'result-right' : 'result-wrong';
 			}
 		}else if(choice.filter(function(item){return !data[item.id]}).length){
