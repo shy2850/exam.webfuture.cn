@@ -3,7 +3,7 @@
 	$include["js/questions.js"];
 	var data = request.post;
 	var validators = {};
-	var username = data.name || request.data.qq;
+	var username = data.name || '';
 	$include["js/userInfo.js"];
 	$include["js/validator.js"];
 %>
