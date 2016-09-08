@@ -1,5 +1,6 @@
 exports["localhost"] = {
     root: "./",
+    runJsBefore: false,
     filter: {
         get: function(req, resp){
             var pathname = req.url.toString();
