@@ -16,7 +16,7 @@
 	if(!username
 		|| !qqValidator(username)
 	){
-		print('alert("请输入你的QQ号码方便记录!")');
+		print('alert("请输入你的手机号码方便记录!")');
 	}else{
 		var filepath = path.join(request.util.conf.root, '/answers/', username + '.json');
 		var stats = fs.existsSync(filepath);

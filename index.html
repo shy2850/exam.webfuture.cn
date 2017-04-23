@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>前端基本技能测试</title>
+        <meta name="Keywords" content="前端基本技能测试, 前端基础测试，前端测试题"/>  
+        <meta name="Description" content="前端基本技能测试: 从HTML,CSS,JS基础,客户端、协议了解，资源优化等方面简单考察前端基础技能"/>
 	<style>
 		body{ background: #fff; color: #000;}
 		.center{width: 1000px; margin:0 auto; }
@@ -19,12 +21,12 @@
 <form action="/index.html" method="post">
 	<div class="center" id="center">
 		<div class="text-center">
-			<label for="name">输入你的QQ号，方便我们记录： <input type="text" name="name" id="username"></label> <input type="submit" value="提交答案" value="<%=request.data.qq || ''%>">
+			<label for="name">输入你的手机号，方便我们记录： <input type="text" name="name" id="username"></label> <input type="submit" value="提交答案" value="<%=request.data.qq || ''%>">
 		</div>
 	</div>
 </form>
 <script>$include[js/exam.js]</script>
-<script>$include[js/questions.js]</script>
+<script>$include[js/questions.js];</script>
 <script>
 (function(E, choice){
 	var center = document.getElementById('center');
