@@ -26,7 +26,7 @@
 	</div>
 </form>
 <script>$include[js/exam.js]</script>
-<script>$include[js/questions.js];</script>
+<script><% $include[js/questions.js]; choice = choice.map(function (c) {delete c.desc; return c});%> var choice = <%=JSON.stringify(choice)%></script>
 <script>
 (function(E, choice){
 	var center = document.getElementById('center');
