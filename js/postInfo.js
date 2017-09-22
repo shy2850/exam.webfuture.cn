@@ -1,11 +1,11 @@
 <%
-	$include["js/answer.js"];
-	$include["js/questions.js"];
+	$include["/js/answer.js"];
+	$include["/js/questions.js"];
 	var data = request.post;
 	var validators = {};
 	var username = data.name || '';
-	$include["js/userInfo.js"];
-	$include["js/validator.js"];
+	$include["/js/userInfo.js"];
+	$include["/js/validator.js"];
 %>
 (function(E){
 	var username = document.getElementById('username');
@@ -18,7 +18,7 @@
 	){
 		print('alert("请输入你的手机号码方便记录!")');
 	}else{
-		var filepath = path.join(request.util.conf.root, '/answers/', username + '.json');
+		var filepath = path.join('./answers/', username + '.json');
 		var stats = fs.existsSync(filepath);
 		if(stats){
 			var res = JSON.parse(fs.readFileSync(filepath));

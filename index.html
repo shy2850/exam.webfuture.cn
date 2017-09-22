@@ -18,15 +18,16 @@
 	</style>
 </head>
 <body>
+	<%-pathname%>
 <form action="/index.html" method="post">
 	<div class="center" id="center">
 		<div class="text-center">
-			<label for="name">输入你的手机号，方便我们记录： <input type="text" name="name" id="username"></label> <input type="submit" value="提交答案" value="<%=request.data.qq || ''%>">
+			<label for="name">输入你的手机号，方便我们记录： <input type="text" name="name" id="username"></label> <input type="submit" value="提交答案" value="">
 		</div>
 	</div>
 </form>
-<script>$include[js/exam.js]</script>
-<script><% $include[js/questions.js]; choice = choice.map(function (c) {delete c.desc; c.radios=c.radios.map(function(r){return r.toString()}); return c});%> var choice = <%=JSON.stringify(choice)%></script>
+<script>$include['js/exam.js']</script>
+<script><% $include['js/questions.js']; choice = choice.map(function (c) {delete c.desc; c.radios=c.radios.map(function(r){return r.toString()}); return c});%> var choice = <%=JSON.stringify(choice)%></script>
 <script>
 (function(E, choice){
 	var center = document.getElementById('center');
@@ -40,9 +41,9 @@
 </script>
 <script>
 	<%if(request.post){%>
-		$include[js/postInfo.js]
+		$include['js/postInfo.js']
 	<%}else{%>
-		$include[js/getInfo.js]
+		$include['js/getInfo.js']
 	<%}%>
 </script>
 </body>

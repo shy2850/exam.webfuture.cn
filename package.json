@@ -1,0 +1,27 @@
+{
+  "name": "exam.webfuture.cn",
+  "version": "1.0.0",
+  "description": "前端基本技能测试",
+  "main": "index.html",
+  "scripts": {
+    "start": "f2e start",
+    "test": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shy2850/exam.webfuture.cn.git"
+  },
+  "keywords": [
+    "前端基本技能测试"
+  ],
+  "author": "shy2850",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shy2850/exam.webfuture.cn/issues"
+  },
+  "homepage": "https://github.com/shy2850/exam.webfuture.cn#readme",
+  "dependencies": {
+    "f2e-middle-template": "^0.2.4",
+    "f2e-server": "^2.5.0"
+  }
+}
