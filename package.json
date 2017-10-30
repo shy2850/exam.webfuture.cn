@@ -22,6 +22,6 @@
   "homepage": "https://github.com/shy2850/exam.webfuture.cn#readme",
   "dependencies": {
     "f2e-middle-template": "^0.2.4",
-    "f2e-server": "^2.5.0"
+    "f2e-server": "^2.6.2"
   }
 }
