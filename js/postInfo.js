@@ -18,7 +18,7 @@
 	){
 		print('alert("请输入你的手机号码方便记录!")');
 	}else{
-		var filepath = path.join('./answers/', username + '.json');
+		var filepath = path.join(pathname, 'answers/' + username + '.json');
 		var stats = fs.existsSync(filepath);
 		if(stats){
 			var res = JSON.parse(fs.readFileSync(filepath));
