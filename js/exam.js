@@ -136,7 +136,7 @@
 		for(var i = 0; i < document.getElementsByTagName('table').length; i += 5) {
 			random2in5(i)
 		}
-		return indexes.map(n => 'table:nth-child(' + (n + 1) + ')').join(',') + '{display: table}'
+		return indexes.map(function (n) { return 'table:nth-child(' + (n + 1) + ')' }).join(',') + '{display: table}'
 	}
 	var style = document.createElement('style')
 	head.appendChild(style)
