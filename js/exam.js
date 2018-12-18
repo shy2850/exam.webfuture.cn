@@ -127,14 +127,14 @@
 
 	var renderStyle = function () {
 		var indexes = []
-		var random2in5 = function () {
+		var random2in5 = function (i) {
 			var a = Math.floor(Math.random() * 5)
-			var b = Math.floor(Math.random() * 4) + a + 1 % 5
-			indexes.push(a)
-			indexes.push(b)
+			var b = (Math.floor(Math.random() * 4) + a + 1) % 5
+			indexes.push(a + i)
+			indexes.push(b + i)
 		}
 		for(var i = 0; i < document.getElementsByTagName('table').length; i += 5) {
-			random2in5()
+			random2in5(i)
 		}
 		return indexes.map(n => 'table:nth-child(' + (n + 1) + ')').join(',') + '{display: none}'
 	}
