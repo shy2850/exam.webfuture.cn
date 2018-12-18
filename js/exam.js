@@ -136,7 +136,7 @@
 		for(var i = 0; i < document.getElementsByTagName('table').length; i += 5) {
 			random2in5(i)
 		}
-		return indexes.map(n => 'table:nth-child(' + (n + 1) + ')').join(',') + '{display: none}'
+		return indexes.map(n => 'table:nth-child(' + (n + 1) + ')').join(',') + '{display: table}'
 	}
 	var style = document.createElement('style')
 	head.appendChild(style)
@@ -146,7 +146,7 @@
 			head.removeChild(style)
 			style = document.createElement('style')
 			style.media = 'print'
-			style.innerHTML = renderStyle() + '.text-center {display: none}'
+			style.innerHTML =  'table,.text-center {display: none}' + renderStyle()
 			head.appendChild(style)
 			print()
 		}
