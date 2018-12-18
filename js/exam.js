@@ -1,6 +1,7 @@
 (function(win,$){
+	var head = document.getElementsByTagName("head")[0];
 	var ieCode = document.createTextNode("<!--[if IE]> <script>window.isIE = true;</script> <![endif]-->");
-	document.getElementsByTagName("head")[0].appendChild(ieCode);
+	head.appendChild(ieCode);
 
 	var count = {};
 	$.itemCount = function(key){
@@ -124,6 +125,32 @@
 		
 	};
 
+	var renderStyle = function () {
+		var indexes = []
+		var random2in5 = function () {
+			var a = Math.floor(Math.random() * 5)
+			var b = Math.floor(Math.random() * 4) + a + 1 % 5
+			indexes.push(a)
+			indexes.push(b)
+		}
+		for(var i = 0; i < document.getElementsByTagName('table').length; i += 5) {
+			random2in5()
+		}
+		return indexes.map(n => 'table:nth-child(' + (n + 1) + ')').join(',') + '{display: none}'
+	}
+	var style = document.createElement('style')
+	head.appendChild(style)
+	onkeydown = function (e) {
+		e = e || window.event
+		if (e.keyCode == 13 && (e.metaKey || e.ctrlKey)) {
+			head.removeChild(style)
+			style = document.createElement('style')
+			style.media = 'print'
+			style.innerHTML = renderStyle() + '.text-center {display: none}'
+			head.appendChild(style)
+			print()
+		}
+	}
 })(window,{ 
 	attchEvent : function(d,type,fn){
 		if( d.addEventListener ){
