@@ -5,6 +5,7 @@
   "main": "index.html",
   "scripts": {
     "dev": "f2e start dev",
+    "start": "f2e start",
     "test": "eslint"
   },
   "repository": {
